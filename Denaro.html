@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Denaro</title>
+    <link rel="stylesheet" type="text/css" href="Denaro.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="shortcut icon" type="image/png" href="images/Denaro-icon.ico"/>
+    <meta charset="utf-8"/>
+  </head>
+<body>
+  <div class="banner">
+    <h1>Denaro</h1>
+    <div class="desc">
+      <p>A free online tool for budgeting expenses and managing cashflow!</p>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="tabs" id="tabBox">
+      <div class="tab">
+        <input type="radio" name="css-tab1" id="tab-1" checked class="tab-switch">
+        <label for="tab-1" class="tab-label">Income</label>
+          <div class="budget-calc" id="incomeCalc">
+            <table id="incomeTable">
+              <tr>
+                <th>Income Sources 
+                  <button title="Adds a new income source." class="addButton" id="incomeAdd">+</button>
+                  <button title="Removes the last income source." class="subButton" id="incomeSub">-</button>
+                </th>
+                <th class="amount">Amount</th>
+                <th class="frequency-heading">Frequency</th>
+              </tr>
+              <tr>
+                <td><input class="incomeExpense" type="text" maxlength="20" value="Metatherapy Pay"></td>
+                <td><input class="incomeAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+                <td>
+                  <select class="incomeCategory" id="incomeCat0">
+                    <option value="once">once</option>
+                    <option value="daily">daily</option>
+                    <option value="weekly">weekly</option>
+                    <option value="biweekly" selected>biweekly</option>
+                    <option value="monthly">monthly</option>
+                    <option value="quarterly">quarterly</option>
+                    <option value="yearly">yearly</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><input class="incomeExpense" type="text" maxlength="20" value="Software Dev"></td>
+                <td><input class="incomeAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+                <td>                  
+                  <select class="incomeCategory" id="incomeCat1">
+                    <option value="once">once</option>
+                    <option value="daily">daily</option>
+                    <option value="weekly">weekly</option>
+                    <option value="biweekly">biweekly</option>
+                    <option value="monthly" selected>monthly</option>
+                    <option value="quarterly">quarterly</option>
+                    <option value="yearly">yearly</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Annual Income Total:</th>
+                <td class="total" id="income-total"></td>
+              </tr>
+            </table>
+          </div>
+      </div>
+      <div class="tab">
+        <input type="radio" name="css-tab1" id="tab-2" class="tab-switch">
+        <label for="tab-2" class="tab-label">Week</label>
+        <div class="budget-calc" id="weekCalc"> 
+          <table id="weekTable">
+            <tr>
+              <th>Weekly Expenses 
+                <button title="Adds a new expense." class="addButton" id="weekAdd">+</button>
+                <button title="Removes the last expense." class="subButton" id="weekSub">-</button>
+              </th>
+              <th class="amount">Amount</th>
+              <th class="category-heading">Category</th>
+            </tr>
+            <tr>
+              <td><input class="weekExpense" type="text" maxlength="20" value="Gas"></td>
+              <td><input class="weekAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+              <td>                  
+                <select class="weekCategory" id="weekCat0">
+                  <option value="housing">Housing</option>
+                  <option value="weekly" selected>Transportation</option>
+                  <option value="food">Food</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="saving">Saving, Investing, & Debt</option>
+                  <option value="personal">Personal Spending</option>
+                  <option value="entertainment">Entertainment & Recreation</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="weekExpense" type="text" maxlength="20" value="Groceries"></td>
+              <td><input class="weekAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+              <td>
+                <select class="weekCategory" id="weekCat1">
+                  <option value="housing">Housing</option>
+                  <option value="weekly">Transportation</option>
+                  <option value="food" selected>Food</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="saving">Saving, Investing, & Debt</option>
+                  <option value="personal">Personal Spending</option>
+                  <option value="entertainment">Entertainment & Recreation</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Weekly Total:</th>
+              <td class="total" id="week-total"></td>
+            </tr>
+          </table>
+        </div> 
+      </div>  
+      <div class="tab">
+        <input type="radio" name="css-tab1" id="tab-3" class="tab-switch">
+        <label for="tab-3" class="tab-label">Month</label>
+        <div class="budget-calc" id="monthCalc"> 
+          <table id="monthTable">
+            <tr>
+              <th>Monthly Expenses 
+                <button title="Add Expense" class="addButton" id="monthAdd">+</button>
+                <button title="Removes the last expense." class="subButton" id="monthSub">-</button>
+              </th>
+              <th class="amount">Amount</th>
+              <th class="category-heading">Category</th>
+            </tr>
+            <tr>
+              <td><input class="monthExpense" type="text" maxlength="20" value="Mortgage/Rent"></td>
+              <td><input class="monthAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+              <td>
+                <select class="monthCategory" id="monthCat0">
+                  <option value="housing" selected>Housing</option>
+                  <option value="weekly">Transportation</option>
+                  <option value="food">Food</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="saving">Saving, Investing, & Debt</option>
+                  <option value="personal">Personal Spending</option>
+                  <option value="entertainment">Entertainment & Recreation</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="monthExpense" type="text" maxlength="20" value="Cell Phone"></td>
+              <td><input class="monthAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+              <td>
+                <select class="monthCategory" id="monthCat1">
+                  <option value="housing">Housing</option>
+                  <option value="weekly">Transportation</option>
+                  <option value="food">Food</option>
+                  <option value="utilities" selected>Utilities</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="saving">Saving, Investing, & Debt</option>
+                  <option value="personal">Personal Spending</option>
+                  <option value="entertainment">Entertainment & Recreation</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Monthly Total:</th>
+              <td class="total" id="month-total"></td>
+            </tr>
+          </table>
+        </div> 
+      </div>
+      <div class="tab">
+        <input type="radio" name="css-tab1" id="tab-4" class="tab-switch">
+        <label for="tab-4" class="tab-label">Year</label>
+        <div class="budget-calc" id="yearCalc"> 
+          <table id="yearTable">
+            <tr>
+              <th>Annual Expenses 
+                <button title="Add Expense" class="addButton" id="yearAdd">+</button>
+                <button title="Removes the last expense." class="subButton" id="yearSub">-</button>
+              </th>
+              <th class="amount">Amount</th>
+              <th class="category-heading">Category</th>
+            </tr>
+            <tr>
+              <td><input class="yearExpense" type="text" maxlength="20" value="Liability Insurance"></td>
+              <td><input class="yearAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+              <td>
+                <select class="yearCategory" id="yearCat0">
+                  <option value="housing">Housing</option>
+                  <option value="weekly">Transportation</option>
+                  <option value="food">Food</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="insurance" selected>Insurance</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="saving">Saving, Investing, & Debt</option>
+                  <option value="personal">Personal Spending</option>
+                  <option value="entertainment">Entertainment & Recreation</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><input class="yearExpense" type="text" maxlength="20" value="Dentist"></td>
+              <td><input class="yearAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
+              <td>
+                <select class="yearCategory" id="yearCat1">
+                  <option value="housing">Housing</option>
+                  <option value="weekly">Transportation</option>
+                  <option value="food">Food</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="healthcare" selected>Healthcare</option>
+                  <option value="education">Education</option>
+                  <option value="saving">Saving, Investing, & Debt</option>
+                  <option value="personal">Personal Spending</option>
+                  <option value="entertainment">Entertainment & Recreation</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Annual Total:</th>
+              <td class="total" id="year-total"></td>
+            </tr>
+          </table>
+        </div> 
+      </div>
+    </div>
+    <div class="tabs" id="tabBox2">
+      <div class="tab">
+        <input type="radio" name="css-tab2" id="tab-5" checked class="tab-switch2">
+        <label for="tab-5" class="tab-label2">Balance</label>
+          <div class="summaryDiv" id="summaryCalc">
+            <table id="summaryTable">
+              <tr>
+                <th>Expenses </th>
+                <th class="amount">Amount</th>
+                <th class="frequency-heading">Frequency</th>
+              </tr>
+              <tr>
+                <td>Dog</td>
+                <td>Cat</td>
+                <td>Bird</td>
+              </tr>
+              <tr>
+                <td>Car</td>
+                <td>Plane</td>
+                <td>Bike</td>
+              </tr>
+              <tr>
+                <th>Annual Income Total:</th>
+                <td class="total" id="income-total"></td>
+              </tr>
+            </table>
+          </div>
+      </div>
+      <div class="tab">
+        <input type="radio" name="css-tab2" id="tab-6" class="tab-switch2">
+        <label for="tab-6" class="tab-label2">Balance</label>
+          <div class="summaryDiv" id="summaryCalc">
+            <table id="summaryTable">
+              <tr>
+                <th>Expenses </th>
+                <th class="amount">Amount</th>
+                <th class="frequency-heading">Frequency</th>
+              </tr>
+              <tr>
+                <td>Dog</td>
+                <td>Cat</td>
+                <td>Bird</td>
+              </tr>
+              <tr>
+                <td>Car</td>
+                <td>Plane</td>
+                <td>Bike</td>
+              </tr>
+              <tr>
+                <th>Annual Income Total:</th>
+                <td class="total" id="income-total"></td>
+              </tr>
+            </table>
+          </div>
+      </div>  
+      <div class="tab">
+        <input type="radio" name="css-tab2" id="tab-7" class="tab-switch2">
+        <label for="tab-7" class="tab-label2">Balance</label>
+          <div class="summaryDiv" id="summaryCalc">
+            <table id="summaryTable">
+              <tr>
+                <th>Expenses </th>
+                <th class="amount">Amount</th>
+                <th class="frequency-heading">Frequency</th>
+              </tr>
+              <tr>
+                <td>Dog</td>
+                <td>Cat</td>
+                <td>Bird</td>
+              </tr>
+              <tr>
+                <td>Car</td>
+                <td>Plane</td>
+                <td>Bike</td>
+              </tr>
+              <tr>
+                <th>Annual Income Total:</th>
+                <td class="total" id="income-total"></td>
+              </tr>
+            </table>
+          </div> 
+      </div>
+      <div class="tab">
+        <input type="radio" name="css-tab2" id="tab-8" class="tab-switch2">
+        <label for="tab-8" class="tab-label2">Balance</label>
+          <div class="summaryDiv" id="summaryCalc">
+            <table id="summaryTable">
+              <tr>
+                <th>Expenses </th>
+                <th class="amount">Amount</th>
+                <th class="frequency-heading">Frequency</th>
+              </tr>
+              <tr>
+                <td>Dog</td>
+                <td>Cat</td>
+                <td>Bird</td>
+              </tr>
+              <tr>
+                <td>Car</td>
+                <td>Plane</td>
+                <td>Bike</td>
+              </tr>
+              <tr>
+                <th>Annual Income Total:</th>
+                <td class="total" id="income-total"></td>
+              </tr>
+            </table>
+          </div> 
+      </div>
+    </div>
+  </div>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="Denaro.js"></script>
+</body>
+</html>
