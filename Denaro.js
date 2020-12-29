@@ -148,11 +148,12 @@ $(document).ready(function() {
         } 
       }
 
-      this.updateSum = (slot) => { // Updates Total and display Value of input
+      this.updateSum = (slot) => { // Updates Totals and display Value of input
         this.sum = this.numberArray.reduce(reducer);
         console.log(this.numberArray);
         this.total.innerHTML = "$" + addCommas(this.sum.toFixed(2)); 
         this.inputsArray[slot].value = "$" + addCommas(parseFloat(remove$Sign(this.inputsArray[slot].value)).toFixed(2)); // returns a string to display in input field
+        updateBudget();
       }
 
       this.spliceKey = (slot) => { // "slot" is the index number of the Object.expenseArray
@@ -251,6 +252,14 @@ $(document).ready(function() {
     } else {
       return str;
     }
+  }
+
+  function updateBudget() { // Sums week, month, year, and income totals and returns annual budget
+    const budgetTotal = document.getElementById("budget-total");
+    let expSum = 52*week.sum + 12*month.sum + year.sum; 
+    let incSum = income.sum; 
+    let budget = incSum - expSum; 
+    budgetTotal.innerHTML = "$" + addCommas(budget.toFixed(2)); 
   }
 
 

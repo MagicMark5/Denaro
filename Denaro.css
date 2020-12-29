@@ -105,6 +105,11 @@ input[type=number] {
     transition: all 0.35s;
 }
 
+.summaryDiv {
+    background-color: rosybrown;
+    border-bottom: 0.25rem solid rosybrown;
+}
+
 #monthCalc {
     height: 12rem;
 }
@@ -136,10 +141,10 @@ input[type=number] {
 }
 
 .tab-switch2:checked + .tab-label2 {
-    background: #57e7cf;
+    background: rosybrown;
     color: black;
     border-bottom: 0;
-    border-right: 0.125rem solid #57e7cf;
+    border-right: 0.125rem solid rosybrown;
     transition: all 0.35s; 
     z-index: 1;
     top: -0.0625rem;
@@ -238,13 +243,16 @@ th.category-heading {
     float: right;
 }
 
-#balance {
-    position: relative;
-    height: 12rem;
-    width: 80%; 
-    border: 2px bold rgb(44, 62, 80);
-    border-radius: 3px; 
+table.summaryTable th {
+    width: 50rem;
+}
+
+.amountNumber {
+    text-align: right;
+}
+
+.amountTitle {
+    border-bottom: 2px dotted black;
     font-weight: bold;
-    background-color: rosybrown;
-    z-index: 1;
+    height: 2.5rem;
 }

@@ -30,7 +30,7 @@
                 <th class="frequency-heading">Frequency</th>
               </tr>
               <tr>
-                <td><input class="incomeExpense" type="text" maxlength="20" value="Metatherapy Pay"></td>
+                <td><input class="incomeExpense" type="text" maxlength="20" value="Full-Time Job"></td>
                 <td><input class="incomeAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
                 <td>
                   <select class="incomeCategory" id="incomeCat0">
@@ -45,7 +45,7 @@
                 </td>
               </tr>
               <tr>
-                <td><input class="incomeExpense" type="text" maxlength="20" value="Software Dev"></td>
+                <td><input class="incomeExpense" type="text" maxlength="20" value="Part-Time Job"></td>
                 <td><input class="incomeAmount" type="string" min=0 value="0" onfocus="this.select()" step="any"></td>
                 <td>                  
                   <select class="incomeCategory" id="incomeCat1">
@@ -246,25 +246,22 @@
         <input type="radio" name="css-tab2" id="tab-5" checked class="tab-switch2">
         <label for="tab-5" class="tab-label2">Balance</label>
           <div class="summaryDiv" id="summaryCalc">
-            <table id="summaryTable">
+            <table class="summaryTable">
               <tr>
-                <th>Expenses </th>
+                <th>Annual Cashflow Summary </th>
                 <th class="amount">Amount</th>
-                <th class="frequency-heading">Frequency</th>
               </tr>
               <tr>
-                <td>Dog</td>
-                <td>Cat</td>
-                <td>Bird</td>
+                <td class="amountTitle">Total Income</td>
+                <td class="amountNumber">0</td>
               </tr>
               <tr>
-                <td>Car</td>
-                <td>Plane</td>
-                <td>Bike</td>
+                <td class="amountTitle">Total Expenses</td>
+                <td class="amountNumber">0</td>
               </tr>
               <tr>
-                <th>Annual Income Total:</th>
-                <td class="total" id="income-total"></td>
+                <th>Annual Budget:</th>
+                <td class="total" id="budget-total"></td>
               </tr>
             </table>
           </div>
@@ -273,7 +270,7 @@
         <input type="radio" name="css-tab2" id="tab-6" class="tab-switch2">
         <label for="tab-6" class="tab-label2">Balance</label>
           <div class="summaryDiv" id="summaryCalc">
-            <table id="summaryTable">
+            <table class="summaryTable">
               <tr>
                 <th>Expenses </th>
                 <th class="amount">Amount</th>
@@ -300,9 +297,9 @@
         <input type="radio" name="css-tab2" id="tab-7" class="tab-switch2">
         <label for="tab-7" class="tab-label2">Balance</label>
           <div class="summaryDiv" id="summaryCalc">
-            <table id="summaryTable">
+            <table class="summaryTable">
               <tr>
-                <th>Expenses </th>
+                <th>Cashflow Summary </th>
                 <th class="amount">Amount</th>
                 <th class="frequency-heading">Frequency</th>
               </tr>
@@ -327,7 +324,7 @@
         <input type="radio" name="css-tab2" id="tab-8" class="tab-switch2">
         <label for="tab-8" class="tab-label2">Balance</label>
           <div class="summaryDiv" id="summaryCalc">
-            <table id="summaryTable">
+            <table class="summaryTable">
               <tr>
                 <th>Expenses </th>
                 <th class="amount">Amount</th>
